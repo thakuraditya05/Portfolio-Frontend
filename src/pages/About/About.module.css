@@ -1,0 +1,20 @@
+/* --- About.module.css --- */
+
+.aboutSection {
+  background: white;
+  padding: 100px 5vw;
+}
+
+/* Global Container jaisa kaam karega */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+

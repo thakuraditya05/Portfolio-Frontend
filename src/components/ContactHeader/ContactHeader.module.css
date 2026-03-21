@@ -1,0 +1,37 @@
+/* --- src/components/ContactHeader/ContactHeader.module.css --- */
+
+.sectionLabel {
+  color: var(--accent); /* Standard green color */
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sectionLabel::after {
+  content: "";
+  flex: 1;
+  max-width: 48px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.4;
+}
+
+.sectionTitle {
+  font-family: "Fraunces", serif;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--ink); /* Black text */
+  margin-bottom: 24px;
+}
+
+.contactDesc {
+  font-size: 16px;
+  color: var(--ink2); /* Gray text */
+  line-height: 1.8;
+  margin-bottom: 36px;
+}

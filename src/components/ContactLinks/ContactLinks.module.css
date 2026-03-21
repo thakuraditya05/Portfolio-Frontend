@@ -1,0 +1,35 @@
+/* --- src/components/ContactLinks/ContactLinks.module.css --- */
+
+.contactLinks { display: flex; flex-direction: column; gap: 14px; }
+
+.contactLink {
+  display: flex; align-items: center; gap: 14px;
+  color: var(--ink2); text-decoration: none;
+  font-size: 14px; padding: 14px 18px; 
+  border: 1px solid var(--border); /* Light border */
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+/* Hover par button jaisa green glow aayega */
+.contactLink:hover { 
+  color: var(--accent); 
+  background: var(--accent-light); 
+  border-color: var(--accent); 
+}
+
+.contactLinkIcon { 
+  width: 36px; height: 36px; 
+  background: var(--bg2); /* Light gray background */
+  color: var(--ink); /* Dark icon */
+  border-radius: 8px; display: flex; align-items: center; 
+  justify-content: center; font-size: 16px; flex-shrink: 0; 
+  transition: all 0.2s;
+}
+
+.contactLink:hover .contactLinkIcon {
+  background: white; 
+}
+
+.linkTitle { color: var(--ink); font-size: 13px; font-weight: 500; }
+.linkValue { font-size: 13px; }

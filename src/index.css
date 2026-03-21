@@ -1,0 +1,68 @@
+
+/* src/index.css ke top par add karein */
+:root {
+  --bg: #F7F6F2;
+  --bg2: #EFEDE7;
+  --ink: #1A1915;
+  --ink2: #5A574F;
+  --ink3: #9A978F;
+  --accent: #2D6A4F;
+  --accent-light: #E8F3EE;
+  --accent2: #B5451B;
+  --border: rgba(26,25,21,0.10);
+  --border2: rgba(26,25,21,0.06);
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  /* background: var(--bg); */
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.fade-up {
+  opacity: 0; transform: translateY(24px);
+  animation: fadeUp 0.7s ease forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+} 
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.35s; }
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* for unScroallbe  */
+/* Works on Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 5px;              /* thin vertical */
+  height: 5px;             /* thin horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* no background */
+}
+
+::-webkit-scrollbar-thumb {
+   background: rgba(0, 0, 0, 0.3);  /* light grey */
+  border-radius: 10px;             /* smooth rounded */
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.6);  /* darker on hover */
+}

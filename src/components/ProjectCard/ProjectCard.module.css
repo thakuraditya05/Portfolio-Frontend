@@ -1,0 +1,104 @@
+.projectCard {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  cursor: pointer; /* Clickable dikhane ke liye */
+}
+
+/* 🌟 Hover par Gol (Circular) Glow Light Effect */
+.projectCard::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(
+    circle,
+    rgba(45, 106, 79, 0.15) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.4s ease,
+    height 0.4s ease;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.projectCard:hover::after {
+  width: 300px; /* Hover par light fail jayegi */
+  height: 300px;
+}
+
+.projectCard:hover {
+  box-shadow: 0 12px 40px rgba(45, 106, 79, 0.12);
+  transform: translateY(-3px);
+  border-color: rgba(45, 106, 79, 0.3);
+}
+
+/* Content ko light ke upar rakhne ke liye */
+.cardContent {
+  position: relative;
+  z-index: 1;
+}
+
+.projectNum {
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  color: var(--ink3);
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.projectTitle {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.projectDesc {
+  font-size: 13.5px;
+  color: var(--ink2);
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+.projectStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+.projectTag {
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 30px;
+  background: white;
+  color: var(--ink2);
+  border: 1px solid var(--border);
+}
+.projectLinks {
+  display: flex;
+  gap: 12px;
+}
+.projLink {
+  font-size: 12px;
+  color: var(--accent);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  transition: gap 0.2s;
+}
+.projLink:hover {
+  gap: 8px;
+}

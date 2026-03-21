@@ -1,0 +1,174 @@
+/* --- src/components/ProjectModal/ProjectModal.module.css --- */
+
+/* 🌟 1. Overlay (Background) */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Browser ko batayega ki poori screen leni hai */
+  background: rgba(26, 25, 21, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 9999; /* Navbar se upar rakhne ke liye */
+  display: flex;
+  align-items: center; /* Vertical Center */
+  justify-content: center; /* Horizontal Center */
+}
+
+/* 🌟 2. Main Modal Box */
+.modalContent {
+  background: #F7F6F2;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  width: 90%; 
+  max-width: 650px; /* Size compact aur perfect kiya hai */
+  max-height: 75vh; 
+  position: relative; /* Fixed hata kar Relative kiya (Center Fix) */
+  overflow: hidden; 
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+  animation: modalPop 0.3s ease-out;
+  display: flex; 
+  flex-direction: column;
+}
+
+/* 🌟 3. Popup Animation */
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 🌟 4. Close Button */
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: white;
+  border: 1px solid var(--border);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  transition: all 0.2s;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.closeBtn:hover {
+  background: #ffecec;
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+/* 🌟 5. Scroll Area (Content Yahan Scroll Hoga) */
+.modalScrollArea {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto; 
+  padding: 32px;
+  padding-top: 48px; /* Button ke overlap se bachne ke liye */
+}
+
+/* 🌟 6. Custom Scrollbar Styling */
+.modalScrollArea::-webkit-scrollbar {
+  width: 6px;
+}
+.modalScrollArea::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modalScrollArea::-webkit-scrollbar-thumb {
+  background: rgba(45, 106, 79, 0.3);
+  border-radius: 10px;
+}
+.modalScrollArea::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* 🌟 7. Modal Content Styling */
+.modalImage {
+  width: 100%;
+  height: 280px;
+  background: #e0e0e0;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  object-fit: cover;
+}
+
+.modalTitle {
+  font-family: "Fraunces", serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.modalDesc {
+  font-size: 15px;
+  color: var(--ink2);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.modalStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.modalTag {
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background: white;
+  color: var(--ink2);
+  border: 1px solid var(--border);
+  letter-spacing: 0.3px;
+}
+
+.modalActions {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 10px;
+}
+
+.btnPrimary {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  background: var(--accent);
+}
+
+.btnOutline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink);
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.btnOutline:hover {
+  background: var(--border2);
+}

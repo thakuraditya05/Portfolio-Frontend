@@ -1,0 +1,57 @@
+/* --- AboutInfo.module.css --- */
+
+.aboutInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 15px 0 0 0;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border2);
+}
+.infoRow:first-child {
+  border-top: 1px solid var(--border2);
+}
+
+.infoKey {
+  font-size: 12px;
+  color: var(--ink3);
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.infoVal {
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 400;
+}
+.infoVal a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.statusText {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.btnPrimary {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 11px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 13px;
+  transition: background 0.25s, transform 0.2s;
+  display: inline-block;
+}
+.btnPrimary:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}

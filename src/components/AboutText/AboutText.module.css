@@ -1,0 +1,53 @@
+/* --- AboutText.module.css --- */
+
+.sectionLabel {
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sectionLabel::after {
+  content: "";
+  flex: 1;
+  max-width: 48px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.4;
+}
+
+.sectionTitle {
+  font-family: "Fraunces", serif;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--ink);
+  margin-bottom: 56px;
+}
+
+.aboutText p {
+  color: var(--ink2);
+  line-height: 1.85;
+  margin-bottom: 18px;
+  font-size: 15px;
+}
+.aboutText p:last-child {
+  margin-bottom: 0;
+}
+
+.aboutQuote {
+  font-family: "Fraunces", serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.5;
+  border-left: 3px solid var(--accent);
+  padding-left: 22px;
+  margin: 32px 0;
+}

@@ -1,0 +1,15 @@
+/* --- src/pages/Contact/Contact.module.css --- */
+
+.contactSection { 
+  background: white; /* Dark ki jagah white */
+  padding: 100px 5vw; 
+}
+.container { max-width: 1080px; margin: 0 auto; }
+
+.contactGrid { 
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; 
+}
+
+@media (max-width: 768px) {
+  .contactGrid { grid-template-columns: 1fr; gap: 40px; }
+}

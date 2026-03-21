@@ -1,0 +1,46 @@
+.codingCard {
+  border: 1px solid var(--border); 
+  border-radius: var(--radius);
+  padding: 28px 24px; text-align: center;
+  transition: all 0.3s ease; 
+  background: var(--bg); display: block;
+  position: relative; overflow: hidden;
+  cursor: pointer;
+}
+
+/* Hover par card upar aayega */
+.codingCard:hover { 
+  transform: translateY(-6px); 
+  box-shadow: 0 12px 36px rgba(26,25,21,0.09); 
+}
+
+/* Dynamic Brand Border Colors on Hover */
+.hoverLeetcode:hover { border-color: #EAB308; } /* Yellow */
+.hoverCodechef:hover { border-color: #10B981; } /* Green */
+.hoverCodeforces:hover { border-color: #4F46E5; } /* Indigo */
+.hoverGithub:hover { border-color: #52525B; } /* Gray */
+.hoverHackerrank:hover { border-color: #22C55E; } /* Light Green */
+.hoverGfg:hover { border-color: #16A34A; } /* Dark Green */
+
+.codingLogo { font-size: 32px; margin-bottom: 14px; display: block; }
+.codingPlatform { font-weight: 500; font-size: 15px; margin-bottom: 4px; color: var(--ink); }
+.codingHandle {
+  font-family: 'DM Mono', monospace; font-size: 12px;
+  color: var(--accent); margin-bottom: 14px;
+}
+
+.codingStats { display: flex; justify-content: center; gap: 20px; }
+.cStatVal {
+  font-family: 'Fraunces', serif; font-size: 20px;
+  font-weight: 300; letter-spacing: -0.5px; color: var(--ink);
+}
+.cStatLbl { 
+  font-size: 10px; color: var(--ink3); font-family: 'DM Mono', monospace; 
+  text-transform: uppercase; margin-top: 2px; 
+}
+
+.codingBadge {
+  display: inline-block; font-size: 11px; padding: 4px 12px;
+  border-radius: 30px; margin-top: 18px;
+  font-family: 'DM Mono', monospace; font-weight: 500;
+}

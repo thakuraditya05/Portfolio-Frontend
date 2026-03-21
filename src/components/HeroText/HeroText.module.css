@@ -1,0 +1,81 @@
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 12px;
+  font-family: "DM Mono", monospace;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 30px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(45, 106, 79, 0.15);
+}
+.hero-name {
+  font-family: "Fraunces", serif;
+  font-size: clamp(44px, 6vw, 78px);
+  font-weight: 300;
+  line-height: 1.06;
+  letter-spacing: -2.5px;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.hero-name em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-role {
+  font-size: 16px;
+  color: var(--ink2);
+  font-weight: 300;
+  margin-bottom: 28px;
+  letter-spacing: 0.2px;
+}
+.hero-desc {
+  font-size: 15px;
+  color: var(--ink2);
+  line-height: 1.75;
+  max-width: 420px;
+  margin-bottom: 40px;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 13px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-block;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  padding: 13px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
+}
+
+/* Ye code dot (●) create karega hero tag ke aage */
+.hero-tag::before { 
+  content: '●'; 
+  font-size: 8px; 
+  /* 'pulse' naam ki animation ko call kar raha hai jo niche banayi hai */
+  animation: pulse 2s infinite; 
+}
+
+/* Ye code us dot ko blink (chamakne) ka effect dega */
+@keyframes pulse { 
+  0%, 100% { opacity: 1; } 
+  50% { opacity: 0.3; } 
+}
