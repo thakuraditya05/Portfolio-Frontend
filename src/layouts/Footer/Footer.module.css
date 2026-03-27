@@ -14,6 +14,37 @@
   height: 60px;
 }
 
+.hiddenDot {
+  display: inline-block; /* Transform animation ke liye ye zaroori hai */
+  margin-left: 8px;
+  color: var(--accent); /* Aapka Green Color */
+  font-size: 14px;
+  cursor: pointer;
+  
+  /* Ye line animation ko loop mein chalayegi */
+  animation: floatGlow 2s ease-in-out infinite; 
+}
+
+/* 🌟 Keyframes for Up-Down & Glowing Effect */
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.4;
+    text-shadow: 0 0 4px var(--accent);
+  }
+  50% {
+    transform: translateY(-4px); /* Halka sa upar uthega */
+    opacity: 1; /* Pura bright ho jayega */
+    /* Deep Green Glow Effect */
+    text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); 
+  }
+  100% {
+    transform: translateY(0px); /* Wapas niche aayega */
+    opacity: 0.4;
+    text-shadow: 0 0 4px var(--accent);
+  }
+}
+
 
 .footerLogo {
   font-family: 'Fraunces', serif;

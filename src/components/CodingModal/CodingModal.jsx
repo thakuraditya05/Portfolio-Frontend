@@ -1,63 +1,64 @@
-
-import React, { useEffect } from 'react'; // 👈 useEffect import karein
+import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom'; // 🌟 createPortal yahan se aayega
 import styles from './CodingModal.module.css';
 
 const CodingModal = ({ profile, onClose }) => {
-
-  // 🌟 JAISE HI MODAL KHULEGA, PEECHHE KA SCROLL BAND HO JAYEGA
+  // Jab modal khule toh pichhe ki screen scroll na ho
   useEffect(() => {
     if (profile) {
-      // Modal open hua: Body ka scroll hide kar do
       document.body.style.overflow = 'hidden';
     } else {
-      // Modal close hua: Body ka scroll wapas chalu kar do
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = 'unset';
     }
-
-    // Clean up function: Agar component achanak hata, toh scroll chalu rahe
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = 'unset';
     };
-  }, [profile]); // Jab bhi 'profile' state change hogi, ye chalega
-
+  }, [profile]);
 
   if (!profile) return null;
 
-  return (
+  // 🌟 createPortal ka jadu: Ye modal ko normal DOM tree se bahar nikal kar <body> ke end me daal dega
+  return ReactDOM.createPortal(
     <div className={styles.modalOverlay} onClick={onClose}>
+      {/* e.stopPropagation() ensures ki modal ke andar click karne par wo band na ho */}
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeBtn} onClick={onClose}>✕</button>
         
-        <div className={styles.modalScrollArea}>
-          <img src={profile.image} alt={profile.platform} className={styles.modalImage} />
-          
-          <h2 className={styles.modalTitle}>
-            {profile.logo} {profile.platform}
-          </h2>
-          <div className={styles.modalId}>ID: <a href='https://leetcode.com/u/thakur-aditya05/' >{profile.handle}</a></div>
-          
-          <p className={styles.modalDesc}>{profile.fullDesc}</p>
-          
-          <div className={styles.modalStatsGrid}>
-             {/* Card wale stats ko thoda bada aur detail me dikhayenge */}
-             {profile.stats.map((stat, i) => (
-                <div key={i} style={{ textAlign: 'center' }}>
-                  <div style={{ fontFamily: 'Fraunces', fontSize: '24px', color: 'var(--ink)' }}>{stat.value}</div>
-                  <div style={{ fontSize: '11px', color: 'var(--ink3)', textTransform: 'uppercase', letterSpacing: '1px' }}>{stat.label}</div>
-                </div>
-             ))}
-             <div style={{ textAlign: 'center' }}>
-                <div style={{ fontFamily: 'Fraunces', fontSize: '24px', color: 'var(--accent)' }}>{profile.badgeText}</div>
-                <div style={{ fontSize: '11px', color: 'var(--ink3)', textTransform: 'uppercase', letterSpacing: '1px' }}>Current Status</div>
-             </div>
+        <button className={styles.closeBtn} onClick={onClose}>
+          &times;
+        </button>
+
+        <div className={styles.modalHeader}>
+          <span className={styles.modalLogo}>{profile.logo}</span>
+          <div className={styles.modalTitleArea}>
+            <h3 className={styles.modalPlatform}>{profile.platform}</h3>
+            <span className={styles.modalHandle}>{profile.handle}</span>
           </div>
-          
-          <a href={profile.link} target="_blank" rel="noreferrer" className={styles.btnPrimary}>
-            View Full Profile ↗
-          </a>
         </div>
+
+        <p className={styles.modalDesc}>{profile.fullDesc}</p>
+
+        <div className={styles.modalStats}>
+          {profile.stats.map((stat, index) => (
+            <div key={index} className={styles.statBox}>
+              <div className={styles.statVal}>{stat.value}</div>
+              <div className={styles.statLbl}>{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* 🌟 Naya page safely kholne wala button */}
+        <a 
+          href={profile.link} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className={styles.visitBtn}
+        >
+          Visit Profile 🚀
+        </a>
+
       </div>
-    </div>
+    </div>,
+    document.body // 🌟 Modal ko seedha document.body me inject kar rahe hain
   );
 };
 

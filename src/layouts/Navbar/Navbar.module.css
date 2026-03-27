@@ -34,16 +34,51 @@
   padding: 0;
   align-items: center;
 }
+
+
 .nav-links a {
   text-decoration: none;
   color: var(--ink2);
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.3px;
-  transition: color 0.2s;
+  transition: all 0.3s ease;
+  position: relative; /* 🌟 FIX: Ye line zaroor add karein glowing dot ke liye */
 }
+
 .nav-links a:hover {
   color: var(--accent);
+}
+
+/* 🌟 NAYA CODE: Active State & Light Effect 🌟 */
+.activeLink {
+  color: var(--ink) !important; 
+  font-weight: 500 !important;
+}
+/* Green Bar Indicator */
+.activeLink::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; /* Text se thoda neeche */
+  left: 0;
+  width: 100%; /* Text ki poori width lega */
+  height: 2px; /* Sleek and thin bar */
+  background: var(--accent); /* Aapka green accent color */
+  border-radius: 2px; /* Halke se rounded edges */
+  
+  /* Animation ko center se spread karne ke liye */
+  transform-origin: center;
+  animation: expandBar 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes expandBar {
+  0% { 
+    transform: scaleX(0); /* Shuru mein width 0 hogi */
+    opacity: 0; 
+  }
+  100% { 
+    transform: scaleX(1); /* Pura 100% open ho jayega */
+    opacity: 1; 
+  }
 }
 
 .nav-cta {
@@ -56,4 +91,38 @@
 .nav-cta:hover {
   background: var(--accent) !important;
   color: var(--bg) !important;
+}
+
+/* --- Mobile Navbar --- */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 5vw 30px;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
+  }
+
+  .mobileMenuOpen {
+    display: flex;
+  }
 }

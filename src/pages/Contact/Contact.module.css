@@ -13,3 +13,13 @@
 @media (max-width: 768px) {
   .contactGrid { grid-template-columns: 1fr; gap: 40px; }
 }
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 60px 5vw;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

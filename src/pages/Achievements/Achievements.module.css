@@ -1,13 +1,42 @@
+/* --- src/pages/Achievements/Achievements.module.css --- */
+
 .achieveSection {
-  /* background: var(--bg); */
   min-height: 100vh;
-  padding: 100px 5vw;
-}
-.container {
-  max-width: 1080px;
-  margin: 0 auto;
+  padding: 100px 0; /* 🌟 FIX: Yahan se '5vw' hata diya taki header 100% width le sake */
+  background: var(--bg);
 }
 
+/* 🌟 FIX: Content ko center karne aur side me gap dene ke liye */
+.container, .stickyInner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 5vw; /* 5vw padding ab yahan shift kar di hai */
+}
+
+/* 🌟 Header ab poori screen ki width lega */
+.stickyHeader {
+  position: sticky;
+  top: 60px;
+  background: var(--bg); /* Black ki jagah var(--bg) use karein taki blend ho jaye */
+  z-index: 10;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+/* Defuse/Fade Effect */
+.stickyHeader::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; 
+  left: 0;
+  width: 100%;
+  height: 60px; 
+  background: linear-gradient(to bottom, var(--bg) 0%, rgba(247, 246, 242, 0) 100%);
+  pointer-events: none; 
+}
+
+/* --- Baaki ka code waisa hi rahega --- */
 .sectionLabel {
   font-family: "DM Mono", monospace;
   font-size: 11px;
@@ -29,16 +58,69 @@
 }
 
 .sectionTitle {
-  font-family: "Fraunces", serif;
+  font-family: 'Fraunces', serif; 
   font-size: clamp(32px, 4vw, 46px);
-  font-weight: 300;
-  line-height: 1.15;
+  font-weight: 300; 
+  line-height: 1.15; 
+  color: var(--ink); 
+  margin-bottom: 32px; 
+}
+
+.filterTabs {
+  display: flex;
+  gap: 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+  overflow-x: auto;
+}
+.filterTabs::-webkit-scrollbar { display: none; }
+
+.tabBtn {
+  background: transparent;
+  border: none;
+  padding: 0 0 12px 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--ink2);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+.tabBtn:hover { color: var(--ink); }
+
+.activeTab {
   color: var(--ink);
-  margin-bottom: 56px;
+  font-weight: 500;
+}
+.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px 2px 0 0;
 }
 
 .achievementsList {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+@media (max-width: 768px) {
+  .achieveSection {
+    padding: 60px 0;
+    min-height: auto;
+  }
+
+  .sectionTitle {
+    font-size: 28px;
+  }
+
+  .stickyHeader {
+    position: static;
+    top: auto;
+  }
 }

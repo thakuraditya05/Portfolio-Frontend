@@ -1,47 +1,107 @@
-import React from 'react';
+// import React, { useEffect } from 'react';
+// import { createPortal } from 'react-dom'; // 🌟 FIX 1: createPortal import karein
+// import styles from './ProjectModal.module.css';
+
+// const ProjectModal = ({ project, onClose }) => {
+
+//   useEffect(() => {
+//     if (project) {
+//       document.body.style.overflow = 'hidden';
+//     } else {
+//       document.body.style.overflow = 'auto';
+//     }
+//     return () => {
+//       document.body.style.overflow = 'auto';
+//     };
+//   }, [project]);
+
+//   if (!project) return null;
+
+//   // 🌟 FIX 2: return ke andar createPortal(...) wrap kar dein
+//   return createPortal(
+//     <div className={styles.modalOverlay} onClick={onClose}>
+//       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+        
+//         <button className={styles.closeBtn} onClick={onClose}>✕</button>
+        
+//         <div className={styles.modalScrollArea}>
+//           <img 
+//             src={project.image || "https://via.placeholder.com/800x400"} 
+//             alt={project.title} 
+//             className={styles.modalImage} 
+//           />
+          
+//           <h2 className={styles.modalTitle}>{project.title}</h2>
+          
+//           <p className={styles.modalDesc}>{project.fullDesc}</p>
+          
+//           <div className={styles.modalStack}>
+//             {project.stack && project.stack.map((tech, index) => (
+//               <span key={index} className={styles.modalTag}>
+//                 {tech}
+//               </span>
+//             ))}
+//           </div>
+          
+//           <div className={styles.modalActions}>
+//             <a href={project.liveLink} target="_blank" rel="noreferrer" className={styles.btnPrimary}>Live Demo ↗</a>
+//             <a href={project.githubLink} target="_blank" rel="noreferrer" className={styles.btnOutline}>GitHub Repo ↗</a>
+//           </div>
+//         </div>
+
+//       </div>
+//     </div>,
+//     document.body // 🌟 FIX 3: Ye batata hai ki ise kahan render karna hai (Sidha body me)
+//   );
+// };
+
+// export default ProjectModal;
+
+
+
+
+
+
+
+
+
+
+import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './ProjectModal.module.css';
-import { useEffect } from 'react';
 
 const ProjectModal = ({ project, onClose }) => {
 
-    // 🌟 JAISE HI MODAL KHULEGA, PEECHHE KA SCROLL BAND HO JAYEGA
-    useEffect(() => {
-      if (project) {
-        // Modal open hua: Body ka scroll hide kar do
-        document.body.style.overflow = 'hidden';
-      } else {
-        // Modal close hua: Body ka scroll wapas chalu kar do
-        document.body.style.overflow = 'auto';
-      }
-  
-      // Clean up function: Agar component achanak hata, toh scroll chalu rahe
-      return () => {
-        document.body.style.overflow = 'auto';
-      };
-    }, [project]); // Jab bhi 'project' state change hogi, ye chalega
-  
+  useEffect(() => {
+    if (project) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [project]);
 
+  if (!project) return null;
 
-  if (!project) return null; // Agar koi project select nahi hua, toh kuch mat dikhao
-
-return (
+  return createPortal(
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         
-        {/* Close Button Scroll Area ke BAAHAR hai, taaki fixed rahe */}
         <button className={styles.closeBtn} onClick={onClose}>✕</button>
         
-        {/* Yahan se Scroll Area shuru hota hai */}
         <div className={styles.modalScrollArea}>
+          {/* 🌟 Cloudinary Image yahan render hogi */}
           <img 
-            src={project.image || "https://via.placeholder.com/800x400"} 
+            src={project.image || "https://placehold.co/800x400?text=No+Image+Available"} 
             alt={project.title} 
             className={styles.modalImage} 
           />
           
           <h2 className={styles.modalTitle}>{project.title}</h2>
           
-          <p className={styles.modalDesc}>{project.fullDesc}</p>
+          <p className={styles.modalDesc}>{project.fullDesc || project.shortDesc}</p>
           
           <div className={styles.modalStack}>
             {project.stack && project.stack.map((tech, index) => (
@@ -52,14 +112,19 @@ return (
           </div>
           
           <div className={styles.modalActions}>
-            <a href={project.liveLink} target="_blank" rel="noreferrer" className={styles.btnPrimary}>Live Demo ↗</a>
-            <a href={project.githubLink} target="_blank" rel="noreferrer" className={styles.btnOutline}>GitHub Repo ↗</a>
+            {/* 🌟 Buttons tabhi dikhenge jab link available hoga */}
+            {project.liveLink && (
+              <a href={project.liveLink} target="_blank" rel="noreferrer" className={styles.btnPrimary}>Live Demo ↗</a>
+            )}
+            {project.githubLink && (
+              <a href={project.githubLink} target="_blank" rel="noreferrer" className={styles.btnOutline}>GitHub Repo ↗</a>
+            )}
           </div>
         </div>
-        {/* Scroll Area Khatam */}
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

@@ -5,32 +5,31 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100vh; /* Browser ko batayega ki poori screen leni hai */
+  right: 0;  /* 🌟 Ye naya add kiya */
+  bottom: 0; /* 🌟 Ye naya add kiya */
   background: rgba(26, 25, 21, 0.5);
   backdrop-filter: blur(8px);
-  z-index: 9999; /* Navbar se upar rakhne ke liye */
+  z-index: 99999; /* Ek '9' aur badha diya safety ke liye */
   display: flex;
-  align-items: center; /* Vertical Center */
-  justify-content: center; /* Horizontal Center */
+  align-items: center; 
+  justify-content: center; 
 }
 
-/* 🌟 2. Main Modal Box */
+/* 🌟 Main Modal Box */
 .modalContent {
   background: #F7F6F2;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 24px;
   width: 90%; 
-  max-width: 650px; /* Size compact aur perfect kiya hai */
+  max-width: 650px; 
   max-height: 75vh; 
-  position: relative; /* Fixed hata kar Relative kiya (Center Fix) */
+  position: relative; 
   overflow: hidden; 
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
   animation: modalPop 0.3s ease-out;
   display: flex; 
   flex-direction: column;
 }
-
 /* 🌟 3. Popup Animation */
 @keyframes modalPop {
   from {
@@ -101,7 +100,8 @@
   background: #e0e0e0;
   border-radius: 16px;
   margin-bottom: 24px;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 }
 
 .modalTitle {

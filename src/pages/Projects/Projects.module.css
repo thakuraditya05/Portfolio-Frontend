@@ -1,50 +1,218 @@
+/* --- src/pages/Projects/Projects.module.css --- */
+
 .projectsSection {
-  background: white;
-  padding: 100px 5vw;
+  background: white; /* Ya var(--bg) jo bhi aapka theme color ho */
+  padding: 100px 0; /* 🌟 FIX: 5vw padding hata di taki header 100% le sake */
 }
-.container {
+
+/* 🌟 FIX: Content ko center rakhne ke liye */
+.container, .stickyInner {
   max-width: 1080px;
   margin: 0 auto;
+  padding: 0 5vw;
 }
 
+/* 🌟 Sticky Header Box (100% Width) */
+.stickyHeader {
+  position: sticky;
+  top: 60px; /* Navbar ke theek niche */
+  background: white; /* Section background se match karega */
+  z-index: 10;
+  padding-top: 40px;
+  padding-bottom: 16px; 
+  margin-top: -40px;
+  width: 100%;
+}
 
+/* 🌟 THE MAGIC: Smooth Hide (Defuse) Effect */
+.stickyHeader::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; 
+  left: 0;
+  width: 100%;
+  height: 60px; 
+  /* Gradient: White se shuru hoke transparent hoga */
+  background: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none; /* Taki cards click ho sakein */
+}
+
+/* Label & Title flex container */
+.sectionHeaderTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
 
 .sectionLabel {
-  font-family: "DM Mono", monospace;
-  font-size: 11px;
+  font-family: 'DM Mono', monospace; 
+  font-size: 11px; 
   letter-spacing: 2.5px;
-  text-transform: uppercase;
+  text-transform: uppercase; 
   color: var(--accent);
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
+  display: flex; 
+  align-items: center; 
   gap: 10px;
-}
-.sectionLabel::after {
-  content: "";
-  flex: 1;
-  max-width: 48px;
-  height: 1px;
-  background: var(--accent);
-  opacity: 0.4;
-}
-.sectionTitle {
-  font-family: "Fraunces", serif;
-  font-size: clamp(32px, 4vw, 46px);
-  font-weight: 300;
-  line-height: 1.15;
-  color: var(--ink);
-  margin-bottom: 56px;
+  margin: 0;
 }
 
+.sectionLabel::after {
+  content: ''; 
+  display: inline-block; 
+  width: 48px; 
+  height: 1px; 
+  background: var(--accent); 
+  opacity: 0.4;
+}
+
+.sectionTitle {
+  font-family: 'Fraunces', serif; 
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 300; 
+  line-height: 1.15; 
+  color: var(--ink); 
+  margin-bottom: 32px; /* Bottom space thoda kam kiya */
+}
+
+/* 🌟 CUSTOM DROPDOWN CSS */
+.dropdownContainer {
+  position: relative; 
+}
+
+.dropdownTrigger {
+  background: var(--ink);
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--bg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  transition: all 0.3s ease;
+}
+
+.dropdownTrigger:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.caret {
+  font-size: 8px;
+  transition: transform 0.3s ease;
+}
+
+.caretRotate {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px); 
+  right: 0; 
+  background: rgba(247, 246, 242, 0.98); 
+  border: 1px solid var(--border);
+  border-radius: 8px; /* var(--radius-sm) ko standard px kiya */
+  width: 220px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+  backdrop-filter: blur(10px); 
+  z-index: 100;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.showMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownItem {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 12px 20px;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif; 
+  font-size: 13px;
+  color: var(--ink2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.dropdownItem:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.selectedItem {
+  background: var(--ink);
+  color: var(--bg);
+  border: 1px solid var(--border);
+}
+
+/* 🌟 Grid Styles */
 .projectsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
+  margin-top: 20px; /* Thoda gap title ke niche */
 }
 
 @media (max-width: 768px) {
   .projectsGrid {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .projectsSection {
+    padding: 60px 0;
+  }
+
+  .sectionHeaderTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sectionTitle {
+    font-size: 28px;
+  }
+
+  .stickyHeader {
+    position: static;
+    top: auto;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dropdownContainer {
+    width: 100%;
+  }
+
+  .dropdownTrigger {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dropdownMenu {
+    left: 0;
+    right: 0;
+    width: 100%;
   }
 }

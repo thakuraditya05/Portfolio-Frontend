@@ -18,3 +18,14 @@
   align-items: start;
 }
 
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 60px 5vw;
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

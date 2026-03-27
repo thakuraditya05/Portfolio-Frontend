@@ -1,3 +1,50 @@
+﻿// import React, { useContext, useState } from 'react';
+// import styles from './CodingProfiles.module.css';
+// import CodingCard from '../../components/CodingCard/CodingCard';
+// import CodingModal from '../../components/CodingModal/CodingModal';
+// import { PortfolioContext } from '../../../context/PortfolioContext';
+
+// const CodingProfiles = () => {
+//   const { portfolioData, loading } = useContext(PortfolioContext);
+//   const [selectedProfile, setSelectedProfile] = useState(null);
+
+//   if (loading) {
+//     return <div style={{ textAlign: 'center', padding: '100px 0' }}>Loading coding profiles... â³</div>;
+//   }
+
+//   const rawProfiles = portfolioData?.codingProfiles || portfolioData?.profile?.codingProfiles || [];
+//   const profilesData = rawProfiles.map((profile) => ({
+//     ...profile,
+//     stats: Array.isArray(profile?.stats) ? profile.stats : []
+//   }));
+
+//   return (
+//     <section className={`${styles.codingSection} fade-up`}>
+//       <div className={styles.container}>
+//         <div className={styles.sectionLabel}>Coding Profiles</div>
+//         <h2 className={styles.sectionTitle}>Where I compete & learn</h2>
+        
+//         <div className={styles.codingGrid}>
+//           {profilesData.map((profile, index) => (
+//             <CodingCard 
+//               key={profile._id || profile.id || profile.platform || index}
+//               profile={profile} 
+//               onClick={(clickedProfile) => setSelectedProfile(clickedProfile)} 
+//             />
+//           ))}
+//         </div>
+//       </div>
+
+//       <CodingModal 
+//         profile={selectedProfile} 
+//         onClose={() => setSelectedProfile(null)} 
+//       />
+//     </section>
+//   );
+// };
+
+// export default CodingProfiles;
+
 import React, { useState } from 'react';
 import styles from './CodingProfiles.module.css';
 import CodingCard from '../../components/CodingCard/CodingCard';
@@ -6,6 +53,7 @@ import CodingModal from '../../components/CodingModal/CodingModal';
 const CodingProfiles = () => {
   const [selectedProfile, setSelectedProfile] = useState(null);
 
+  // 🌟 Pura data hardcoded hai yahan
   const profilesData = [
     {
       id: 1, platform: "LeetCode", logo: "🟨", handle: "@aditya_singh",

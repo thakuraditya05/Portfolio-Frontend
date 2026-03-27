@@ -35,3 +35,13 @@
   line-height: 1.8;
   margin-bottom: 36px;
 }
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 28px;
+  }
+
+  .contactDesc {
+    font-size: 14px;
+  }
+}

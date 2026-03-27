@@ -1,0 +1,206 @@
+/* =========================================
+   1. MAIN LAYOUT (Admin Container)
+   ========================================= */
+.adminContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f4f9; /* Light gray background */
+  font-family: 'Inter', sans-serif;
+}
+
+/* =========================================
+   2. SIDEBAR STYLES
+   ========================================= */
+.sidebar {
+  width: 260px;
+  background-color: #111; /* Dark premium sidebar */
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+  margin-bottom: 40px;
+  font-size: 22px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar button {
+  background: transparent;
+  color: #888;
+  border: none;
+  text-align: left;
+  padding: 12px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.sidebar button:hover {
+  background-color: #222;
+  color: white;
+}
+
+/* Jo Tab Active hoga uska design */
+.sidebar button.active {
+  background-color: #10B981; /* Green Accent */
+  color: white;
+}
+
+/* =========================================
+   3. MAIN FORM AREA
+   ========================================= */
+.formContent {
+  flex: 1;
+  padding: 50px;
+  max-width: 900px;
+  color: #111; /* Text black taaki padhne me aaye */
+}
+
+.formContent h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.formDesc {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+/* =========================================
+   4. FORM LAYOUT & INPUTS
+   ========================================= */
+.formLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.flexRow {
+  display: flex;
+  gap: 15px;
+}
+
+.flexRow > input {
+  flex: 1;
+}
+
+.formLayout input, 
+.formLayout textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  color: #333;
+  font-size: 15px;
+  box-sizing: border-box; /* Ensures width stays inside container */
+  transition: all 0.2s ease;
+}
+
+.formLayout input:focus, 
+.formLayout textarea:focus {
+  outline: none;
+  border-color: #10B981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+/* =========================================
+   5. FILE UPLOAD SECTION
+   ========================================= */
+.fileSection {
+  margin-bottom: 15px;
+}
+
+.fileLabel {
+  font-size: 13px;
+  color: #666;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.fileInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* =========================================
+   6. BUTTONS
+   ========================================= */
+.btnSubmit {
+  padding: 14px;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  transition: opacity 0.3s;
+  margin-top: 10px;
+}
+
+.btnSubmit:hover {
+  opacity: 0.8;
+}
+
+.btnSubmit:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.btnCancel {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btnCancel:hover {
+  background: #ff7875;
+}
+
+/* =========================================
+   7. MESSAGE BOXES (SUCCESS / ERROR)
+   ========================================= */
+.msgSuccess {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  background: #e6ffed;
+  color: #006622;
+  border-radius: 5px;
+  border: 1px solid #b3ffcc;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.msgError {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  background: #ffebee;
+  color: #cc0000;
+  border-radius: 5px;
+  border: 1px solid #ffcccc;
+  font-size: 14px;
+  font-weight: 500;
+}

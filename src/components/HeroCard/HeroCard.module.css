@@ -10,7 +10,7 @@
   border-radius: 24px;
   padding: 32px;
   width: 100%;
-  max-width: 360px;
+  max-width: 400px;
   box-shadow: 0 2px 40px rgba(26, 25, 21, 0.06);
 }
 .hero-avatar {
@@ -44,6 +44,7 @@
   flex-wrap: wrap;
   gap: 6px;
   margin-top: 18px;
+  margin-bottom: 2px;
 }
 .stack-chip {
   background: var(--bg2);

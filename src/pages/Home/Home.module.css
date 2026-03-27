@@ -35,3 +35,37 @@
 /* --- Hero Text Styles --- */
 
 /* --- Hero Card Styles --- */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 80px 5vw 60px;
+  }
+
+  .bg-dots {
+    display: none;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-grid > :first-child {
+    order: 2;
+  }
+
+  .hero-grid > :last-child {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-grid > :first-child {
+    order: 1;
+  }
+
+  .hero-grid > :last-child {
+    order: 2;
+  }
+}
