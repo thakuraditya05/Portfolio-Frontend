@@ -56,6 +56,9 @@
     font-size: 28px;
     margin-bottom: 32px;
   }
+  .sectionLabel{
+      margin-top: 7px;
+  }
 
   .aboutText p {
     font-size: 14px;

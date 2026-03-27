@@ -40,7 +40,9 @@
   .sectionTitle {
     font-size: 28px;
   }
-
+    .sectionLabel{
+    margin-top: 7px;;
+  }
   .contactDesc {
     font-size: 14px;
   }

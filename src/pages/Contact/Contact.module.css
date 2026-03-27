@@ -1,7 +1,7 @@
 /* --- src/pages/Contact/Contact.module.css --- */
 
 .contactSection { 
-  background: white; /* Dark ki jagah white */
+  background: var(--bg);
   padding: 100px 5vw; 
 }
 .container { max-width: 1080px; margin: 0 auto; }
@@ -21,5 +21,9 @@
   .contactGrid {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+    .sectionLabel{
+    margin-top: 7px;;
   }
 }

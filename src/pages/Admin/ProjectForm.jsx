@@ -5,6 +5,7 @@ import styles from './Admin.module.css';
 
 const ProjectForm = () => {
   const { getToken } = useAuth();
+  const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
   const [formData, setFormData] = useState({ title: '', category: '', shortDesc: '', fullDesc: '', stack: '', liveLink: '', githubLink: '' });
   const [imageFile, setImageFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,7 @@ const ProjectForm = () => {
       if (imageFile) {
         const imageUploadData = new FormData();
         imageUploadData.append('image', imageFile);
-        const uploadRes = await fetch('http://localhost:5000/api/upload', { method: 'POST', body: imageUploadData });
+        const uploadRes = await fetch(`${API_URL}/api/upload`, { method: 'POST', body: imageUploadData });
         const uploadData = await uploadRes.json();
         if (!uploadRes.ok || !uploadData.success) {
           throw new Error(uploadData.message || 'Image upload failed');
@@ -37,7 +38,7 @@ const ProjectForm = () => {
         image: imageUrl, liveLink: formData.liveLink, githubLink: formData.githubLink
       };
 
-      const response = await fetch('http://localhost:5000/api/portfolio/project', {
+      const response = await fetch(`${API_URL}/api/portfolio/project`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify(newProjectData)

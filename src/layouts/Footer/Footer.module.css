@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(247, 246, 242, 0.88); /* Light theme glass effect */
+  background: var(--glass-bg); /* Theme-aware glass effect */
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
   padding: 0 5vw;

@@ -15,7 +15,7 @@
 
 /* Modal ka main dabba */
 .modalContent {
-  background: #ffffff; /* Dark mode ho toh var(--bg2) kar lena */
+  background: var(--bg2); /* Dark mode ho toh var(--bg2) kar lena */
   width: 90%;
   max-width: 480px;
   border-radius: 16px;
@@ -37,7 +37,7 @@
   background: transparent;
   border: none;
   font-size: 28px;
-  color: #666;
+  color: var(--ink3);
   cursor: pointer;
   transition: color 0.2s;
 }
@@ -60,19 +60,19 @@
 .modalPlatform {
   font-size: 22px;
   font-weight: 600;
-  color: #111;
+  color: var(--ink);
   margin: 0 0 4px 0;
 }
 
 .modalHandle {
   font-family: "DM Mono", monospace;
   font-size: 13px;
-  color: #10B981; /* Accent color */
+  color: var(--accent);
 }
 
 .modalDesc {
   font-size: 14.5px;
-  color: #555;
+  color: var(--ink2);
   line-height: 1.6;
   margin-bottom: 25px;
 }
@@ -85,10 +85,10 @@
 }
 
 .statBox {
-  background: #f4f4f9;
+  background: var(--bg);
   padding: 12px 20px;
   border-radius: 8px;
-  border: 1px solid #eee;
+  border: 1px solid var(--border);
   flex: 1;
   text-align: center;
   min-width: 100px;
@@ -98,13 +98,13 @@
   font-family: "Fraunces", serif;
   font-size: 22px;
   font-weight: 600;
-  color: #111;
+  color: var(--ink);
 }
 
 .statLbl {
   font-size: 11px;
   text-transform: uppercase;
-  color: #777;
+  color: var(--ink3);
   letter-spacing: 1px;
   margin-top: 4px;
 }
@@ -113,8 +113,8 @@
   display: block;
   width: 100%;
   text-align: center;
-  background: #111;
-  color: white;
+  background: var(--ink);
+  color: var(--bg);
   padding: 14px;
   border-radius: 8px;
   text-decoration: none;
@@ -124,6 +124,6 @@
 }
 
 .visitBtn:hover {
-  background: #10B981; /* Accent hover */
+  background: var(--accent);
   transform: translateY(-2px);
 }

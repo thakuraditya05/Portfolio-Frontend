@@ -5,6 +5,7 @@ import styles from './Admin.module.css';
 
 const ProfileForm = () => {
   const { getToken } = useAuth();
+  const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
   
   const [formData, setFormData] = useState({
     name: '', bio: '', city: '', country: '', 
@@ -39,7 +40,7 @@ const ProfileForm = () => {
         toast.loading('Uploading Image...', { id: toastId });
         const imageUploadData = new FormData();
         imageUploadData.append('image', profileImageFile);
-        const uploadRes = await fetch('http://localhost:5000/api/upload', {
+        const uploadRes = await fetch(`${API_URL}/api/upload`, {
           method: 'POST', body: imageUploadData
         });
         const uploadData = await uploadRes.json();
@@ -60,7 +61,7 @@ const ProfileForm = () => {
       };
 
       toast.loading('Saving data to database...', { id: toastId });
-      const response = await fetch('http://localhost:5000/api/portfolio/profile', {
+      const response = await fetch(`${API_URL}/api/portfolio/profile`, {
         method: 'POST', 
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify(profilePayload)

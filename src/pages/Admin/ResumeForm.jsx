@@ -5,6 +5,7 @@ import styles from './Admin.module.css';
 
 const ResumeForm = () => {
   const { getToken } = useAuth();
+  const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
   const [formData, setFormData] = useState({ title: '' });
   const [resumeFile, setResumeFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -28,7 +29,7 @@ const ResumeForm = () => {
       const uploadData = new FormData();
       uploadData.append('file', resumeFile);
 
-      const uploadRes = await fetch('http://localhost:5000/api/upload/resume', {
+      const uploadRes = await fetch(`${API_URL}/api/upload/resume`, {
         method: 'POST',
         body: uploadData,
       });
@@ -45,7 +46,7 @@ const ResumeForm = () => {
         resumeUrl: uploadResult.fileUrl,
       };
 
-      const response = await fetch('http://localhost:5000/api/portfolio/resume', {
+      const response = await fetch(`${API_URL}/api/portfolio/resume`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify(payload)

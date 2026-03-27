@@ -5,6 +5,7 @@ import styles from './Admin.module.css';
 
 const SkillForm = () => {
   const { getToken } = useAuth();
+  const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
   const [formData, setFormData] = useState({ category: '', technologies: '' });
   const [loading, setLoading] = useState(false);
 
@@ -23,7 +24,7 @@ const SkillForm = () => {
         technologies: formData.technologies.split(',').map(item => item.trim())
       };
 
-      const response = await fetch('http://localhost:5000/api/portfolio/skill', {
+      const response = await fetch(`${API_URL}/api/portfolio/skill`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify(skillPayload)

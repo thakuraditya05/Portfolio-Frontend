@@ -1,7 +1,7 @@
 /* --- src/pages/Projects/Projects.module.css --- */
 
 .projectsSection {
-  background: white; /* Ya var(--bg) jo bhi aapka theme color ho */
+  background: var(--bg);
   padding: 100px 0; /* 🌟 FIX: 5vw padding hata di taki header 100% le sake */
 }
 
@@ -16,7 +16,7 @@
 .stickyHeader {
   position: sticky;
   top: 60px; /* Navbar ke theek niche */
-  background: white; /* Section background se match karega */
+  background: var(--bg);
   z-index: 10;
   padding-top: 40px;
   padding-bottom: 16px; 
@@ -33,7 +33,7 @@
   width: 100%;
   height: 60px; 
   /* Gradient: White se shuru hoke transparent hoga */
-  background: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to bottom, var(--bg) 0%, rgba(0, 0, 0, 0) 100%);
   pointer-events: none; /* Taki cards click ho sakein */
 }
 
@@ -117,7 +117,7 @@
   position: absolute;
   top: calc(100% + 8px); 
   right: 0; 
-  background: rgba(247, 246, 242, 0.98); 
+  background: var(--bg2); 
   border: 1px solid var(--border);
   border-radius: 8px; /* var(--radius-sm) ko standard px kiya */
   width: 220px;
@@ -205,6 +205,10 @@
     width: 100%;
   }
 
+    .sectionLabel{
+    margin-top: 7px;;
+  }
+
   .dropdownTrigger {
     width: 100%;
     justify-content: space-between;
@@ -216,3 +220,4 @@
     width: 100%;
   }
 }
+

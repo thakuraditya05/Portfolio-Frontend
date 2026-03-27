@@ -62,6 +62,9 @@
     min-height: auto;
     padding: 60px 5vw;
   }
+  .sectionLabel{
+    margin-top: 7px;;
+  }
 
   .sectionTitle {
     font-size: 28px;

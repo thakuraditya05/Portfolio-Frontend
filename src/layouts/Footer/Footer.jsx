@@ -42,7 +42,7 @@ export default function Footer() {
       <span className={styles.footerLogo}>Aditya Singh</span>
       
       <span className={styles.footerCopy}>
-        © 2026 · Built with passion in NITB
+        © 2026 · Built with passion
         
         <SignedOut>
           <SignInButton mode="modal">

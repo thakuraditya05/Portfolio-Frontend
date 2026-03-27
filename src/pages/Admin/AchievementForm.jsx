@@ -5,6 +5,7 @@ import styles from './Admin.module.css';
 
 const AchievementForm = () => {
   const { getToken } = useAuth();
+  const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
   const [formData, setFormData] = useState({
     category: '',
     title: '',
@@ -29,7 +30,7 @@ const AchievementForm = () => {
       if (imageFile) {
         const imageUploadData = new FormData();
         imageUploadData.append('image', imageFile);
-        const uploadRes = await fetch('http://localhost:5000/api/upload', {
+        const uploadRes = await fetch(`${API_URL}/api/upload`, {
           method: 'POST',
           body: imageUploadData
         });
@@ -49,7 +50,7 @@ const AchievementForm = () => {
         image: imageUrl
       };
 
-      const response = await fetch('http://localhost:5000/api/portfolio/achievement', {
+      const response = await fetch(`${API_URL}/api/portfolio/achievement`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify(payload)

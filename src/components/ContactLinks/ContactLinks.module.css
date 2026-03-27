@@ -28,7 +28,7 @@
 }
 
 .contactLink:hover .contactLinkIcon {
-  background: white; 
+  background: var(--bg); 
 }
 
 .linkTitle { color: var(--ink); font-size: 13px; font-weight: 500; }

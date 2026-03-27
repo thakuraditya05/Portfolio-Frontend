@@ -1,17 +1,36 @@
-// src/components/ContactForm/ContactForm.jsx
 import React from 'react';
 import styles from './ContactForm.module.css';
-import toast, { Toaster } from 'react-hot-toast'; // 🌟 Toast library import ki
+import toast, { Toaster } from 'react-hot-toast'; 
 
 const ContactForm = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
     
-    // 🌟 1. Loading Toast dikhao aur uski ID save kar lo
+    // 🌟 1. Form se data nikalna aur extra spaces hatana (trim)
+    const formData = new FormData(event.target);
+    const name = formData.get("name").trim();
+    const email = formData.get("email").trim();
+    const message = formData.get("message").trim();
+
+    // 🌟 2. Missing Field Validation (Agar koi bhi field khali ho)
+    if (!name || !email || !message) {
+      toast.error("Please fill in all the fields! ✍️");
+      return; // Code yahi ruk jayega, aage nahi badhega
+    }
+
+    // 🌟 3. Strict @gmail.com Format Validation (Regex)
+    // Ye check karega ki email valid ho aur sirf @gmail.com par end ho
+    const gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
+    
+    if (!gmailPattern.test(email)) {
+      toast.error("Please enter a valid @gmail.com address! 📧");
+      return; // Code yahi ruk jayega
+    }
+
+    // 🌟 4. Agar sab theek hai toh Loading Toast dikhao
     const toastId = toast.loading("Sending message... ⏳");
 
-    const formData = new FormData(event.target);
     formData.append("access_key", "87e71597-c42b-431b-9980-f92adf5b9178"); 
 
     try {
@@ -23,14 +42,12 @@ const ContactForm = () => {
       const data = await response.json();
 
       if (data.success) {
-        // 🌟 2. Loading wale toast ko Success me badal do
         toast.success("Message Sent Successfully! I'll get back to you soon.", {
-          id: toastId, // Ye ID batati hai ki purane wale ko hi update karna hai
+          id: toastId, 
           duration: 4000,
         });
         event.target.reset(); // Form clear kar do
       } else {
-        // 🌟 3. Agar error aaye toh Error toast dikhao
         console.log("Error", data);
         toast.error("Something went wrong. Please try again.", { id: toastId });
       }
@@ -41,24 +58,25 @@ const ContactForm = () => {
 
   return (
     <>
-      {/* 🌟 NAYA: Toaster component yahan rakhna zaroori hai tabhi popup dikhega */}
       <Toaster position="bottom-right" reverseOrder={false} />
 
-      <form className={`${styles.contactFormBox} fade-up delay-2`} onSubmit={onSubmit}>
+      {/* 🌟 NAYA: "noValidate" lagaya hai taaki browser apni validation na kare aur hamare Toasts dikhein */}
+      <form className={`${styles.contactFormBox} fade-up delay-2`} onSubmit={onSubmit} noValidate>
         
         <div className={styles.formGroup}>
           <label>Name</label>
-          <input type="text" name="name" className={styles.formInput} placeholder="Your full name" required />
+          <input type="text" name="name" className={styles.formInput} placeholder="Your full name" />
         </div>
         
         <div className={styles.formGroup}>
           <label>Email</label>
-          <input type="email" name="email" className={styles.formInput} placeholder="your@email.com" required />
+          {/* type="text" kar diya taaki custom regex kaam kare */}
+          <input type="text" name="email" className={styles.formInput} placeholder="your@gmail.com" />
         </div>
         
         <div className={styles.formGroup}>
           <label>Message</label>
-          <textarea name="message" rows="5" className={styles.formInput} placeholder="Tell me about your project..." required></textarea>
+          <textarea name="message" rows="5" className={styles.formInput} placeholder="Tell me about your project..."></textarea>
         </div>
         
         <button type="submit" className={styles.btnSend}>Send Message →</button>

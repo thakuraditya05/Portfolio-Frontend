@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(247, 246, 242, 0.88);
+  background: var(--glass-bg);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
   padding: 0 5vw;
@@ -28,7 +28,7 @@
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 18px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -80,7 +80,7 @@
     opacity: 1; 
   }
 }
-
+/* nav-actions */
 .nav-cta {
   background: var(--ink);
   color: var(--bg) !important;
@@ -93,6 +93,59 @@
   color: var(--bg) !important;
 }
 
+/* Right side group (links + toggle + hamburger) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.themeToggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bg2), var(--bg));
+  border: 1px solid var(--border);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.themeToggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: linear-gradient(135deg, var(--accent-light), var(--bg2));
+  transform: translateY(-1px);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.themeToggle:active {
+  transform: translateY(0);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+:global([data-theme="dark"]) .themeToggle {
+  background: linear-gradient(135deg, var(--bg), var(--bg2));
+  border-color: var(--border2);
+  color: var(--accent);
+}
+
 /* --- Mobile Navbar --- */
 .hamburger {
   display: none;
@@ -101,9 +154,22 @@
   color: var(--ink);
   font-size: 24px;
   cursor: pointer;
+  padding: 6px;
+  border-radius: 10px;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.hamburger:hover {
+  color: var(--accent);
+  background: var(--accent-light);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
+  .nav-right {
+    gap: 10px;
+  }
+
   .hamburger {
     display: block;
   }
@@ -117,7 +183,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px 5vw 30px;
-    background: white;
+    background: var(--glass-bg-strong);
     border-bottom: 1px solid var(--border);
     z-index: 99;
   }

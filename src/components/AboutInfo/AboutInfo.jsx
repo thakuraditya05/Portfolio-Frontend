@@ -8,14 +8,15 @@ const AboutInfo = () => {
 
   const name = profile?.name || 'Aditya Singh';
   const locationParts = [profile?.location?.city, profile?.location?.country].filter(Boolean);
-  const location = locationParts.length > 0 ? locationParts.join(', ') : 'Indore, M.P., India';
-  const education = profile?.education?.degree || 'B.Tech, Computer Science';
-  const experience = profile?.experience || '3+ Years';
-  const email = profile?.email || 'aditya@example.com';
-  const languages = Array.isArray(profile?.languages) ? profile.languages.join(', ') : 'Hindi, English';
-  const status = profile?.status || 'Open to Opportunities';
+  // const location = locationParts.length > 0 ? locationParts.join(', ') : 'NIT-Bhopal, Bhopal';
+  const location = 'NIT-Bhopal, M.P.';
+  const education = profile?.education?.degree ||  'Electronics and Communication Engineering';
+  const Tech_Stack = 'MERN Stack, Data Science & ML';
+  const Current_Focus = 'AI Applications & DSA Problem Solving';
+  const Highlights = '500+ DSA Problems & Multiple Projects';
+  const What_I_Do = 'Build scalable web apps & intelligent systems';
 
-
+// 2. Current Focus
   const buildDownloadUrl = (url) => {
     if (!url) return '';
     try {
@@ -51,7 +52,7 @@ const AboutInfo = () => {
       a.remove();
       window.URL.revokeObjectURL(url);
     } catch (err) {
-      window.open(resumeLink, '_blank', 'noreferrer');
+      window.open(resumeLink, '_blank', 'noreferrer',err);
     }
   };
 
@@ -70,22 +71,20 @@ const AboutInfo = () => {
         <span className={styles.infoVal}>{education}</span>
       </div>
       <div className={styles.infoRow}>
-        <span className={styles.infoKey}>Experience</span>
-        <span className={styles.infoVal}>{experience}</span>
+        <span className={styles.infoKey}>Tech Stack</span>
+        <span className={styles.infoVal}>{Tech_Stack}</span>
       </div>
       <div className={styles.infoRow}>
-        <span className={styles.infoKey}>Email</span>
-        <span className={styles.infoVal}>
-          <a href={`mailto:${email}`}>{email}</a>
-        </span>
+        <span className={styles.infoKey}>Current Focus</span>
+        <span className={styles.infoVal}>{Current_Focus}</span>
       </div>
       <div className={styles.infoRow}>
-        <span className={styles.infoKey}>Languages</span>
-        <span className={styles.infoVal}>{languages}</span>
+        <span className={styles.infoKey}>Highlights</span>
+        <span className={styles.infoVal}>{Highlights}</span>
       </div>
       <div className={styles.infoRow}>
-        <span className={styles.infoKey}>Status</span>
-        <span className={`${styles.infoVal} ${styles.statusText}`}>{status}</span>
+        <span className={styles.infoKey}>What I Do</span>
+        <span className={`${styles.infoVal} `}>{What_I_Do}</span>
       </div>
       
       <div style={{ marginTop: '28px' }}>
@@ -105,7 +104,7 @@ const AboutInfo = () => {
           style={!hasResume ? { opacity: 0.6, pointerEvents: 'none' } : undefined}
           title={hasResume ? 'Download Resume' : 'Resume not uploaded yet'}
         >
-          Download Resume â†“ {hasResume ? '' : '(Coming Soon)'}
+          Download Resume ↓ {hasResume ? '' : '(Coming Soon)'}
         </a>
       </div>
     </div>
