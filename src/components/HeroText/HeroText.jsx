@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './HeroText.module.css';
+import { Link } from 'react-router-dom';
 
 // 🌟 Prop catch kiya
 const HeroText = ({ profile }) => {
@@ -29,8 +30,9 @@ const HeroText = ({ profile }) => {
       </p>
       
       <div className={`${styles['hero-actions']} fade-up delay-4`}>
-        <a href="/projects" className={styles['btn-primary']}>View My Work</a>
-        <a href="/contact" className={styles['btn-outline']}>Let's Talk</a>
+        <Link to="/projects" className={styles['btn-primary']}>View My Work </Link>
+        <Link to="/contact"className={styles['btn-outline']}>Let's Talk </Link>
+        {/* <a href="/contact" >Let's Talk</a> */}
       </div>
     </div>
   );

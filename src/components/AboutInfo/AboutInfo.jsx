@@ -9,7 +9,7 @@ const AboutInfo = () => {
   const name = profile?.name || 'Aditya Singh';
   const locationParts = [profile?.location?.city, profile?.location?.country].filter(Boolean);
   // const location = locationParts.length > 0 ? locationParts.join(', ') : 'NIT-Bhopal, Bhopal';
-  const location = 'NIT-Bhopal, M.P.';
+  const location = 'NIT-Bhopal, Madhya Pradesh';
   const education = profile?.education?.degree ||  'Electronics and Communication Engineering';
   const Tech_Stack = 'MERN Stack, Data Science & ML';
   const Current_Focus = 'AI Applications & DSA Problem Solving';

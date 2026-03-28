@@ -19,17 +19,17 @@
 }
 
 .infoKey {
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.infoVal {
   font-size: 12px;
   color: var(--ink3);
   font-family: "DM Mono", monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
-
-.infoVal {
-  font-size: 14px;
-  color: var(--ink);
-  font-weight: 400;
 }
 .infoVal a {
   color: var(--accent);
@@ -54,4 +54,19 @@
 .btnPrimary:hover {
   background: var(--accent);
   transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+
+  .infoKey {
+    font-size: 12px;
+    font-weight: 350;
+  }
+
+  .infoVal{
+    margin-right:0;
+    font-size: 10px;
+  }
+
+
 }
