@@ -7,28 +7,28 @@ const ContactForm = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     
-    // 🌟 1. Form se data nikalna aur extra spaces hatana (trim)
+    
     const formData = new FormData(event.target);
     const name = formData.get("name").trim();
     const email = formData.get("email").trim();
     const message = formData.get("message").trim();
 
-    // 🌟 2. Missing Field Validation (Agar koi bhi field khali ho)
+    
     if (!name || !email || !message) {
       toast.error("Please fill in all the fields! ✍️");
-      return; // Code yahi ruk jayega, aage nahi badhega
+      return; 
     }
 
-    // 🌟 3. Strict @gmail.com Format Validation (Regex)
-    // Ye check karega ki email valid ho aur sirf @gmail.com par end ho
+    
+    
     const gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
     
     if (!gmailPattern.test(email)) {
       toast.error("Please enter a valid @gmail.com address! 📧");
-      return; // Code yahi ruk jayega
+      return; 
     }
 
-    // 🌟 4. Agar sab theek hai toh Loading Toast dikhao
+    
     const toastId = toast.loading("Sending message... ⏳");
 
     formData.append("access_key", "87e71597-c42b-431b-9980-f92adf5b9178"); 
@@ -46,7 +46,7 @@ const ContactForm = () => {
           id: toastId, 
           duration: 4000,
         });
-        event.target.reset(); // Form clear kar do
+        event.target.reset(); 
       } else {
         console.log("Error", data);
         toast.error("Something went wrong. Please try again.", { id: toastId });
@@ -60,7 +60,7 @@ const ContactForm = () => {
     <>
       <Toaster position="bottom-right" reverseOrder={false} />
 
-      {/* 🌟 NAYA: "noValidate" lagaya hai taaki browser apni validation na kare aur hamare Toasts dikhein */}
+      
       <form className={`${styles.contactFormBox} fade-up delay-2`} onSubmit={onSubmit} noValidate>
         
         <div className={styles.formGroup}>
@@ -70,7 +70,7 @@ const ContactForm = () => {
         
         <div className={styles.formGroup}>
           <label>Email</label>
-          {/* type="text" kar diya taaki custom regex kaam kare */}
+          
           <input type="text" name="email" className={styles.formInput} placeholder="your@gmail.com" />
         </div>
         

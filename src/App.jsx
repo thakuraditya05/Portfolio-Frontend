@@ -1,7 +1,7 @@
 import React from 'react';
-// 🌟 FIX 1: useLocation ko import kiya
+
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import {Toaster} from 'react-hot-toast'; // 🌟 1. Toast import kiya
+import {Toaster} from 'react-hot-toast'; 
 
 
 import Navbar from './layouts/Navbar/Navbar'; 
@@ -15,7 +15,7 @@ import Contact from './pages/Contact/Contact';
 import './index.css'; 
 import MainForm from './pages/Admin/MainForm.jsx';
 
-// 🌟 FIX 2: Router ke andar kaam karne ke liye ek alag Component banaya
+
 const AppContent = () => {
   const location = useLocation();
   const hideNavbar = location.pathname.startsWith('/admin');
@@ -24,7 +24,7 @@ const AppContent = () => {
     <>
 
       <Toaster position="bottom-right" />
-      {/* 🌟 FIX 3: Sirf ek hi Navbar rakha jo condition pe chalega */}
+      
       {!hideNavbar && <Navbar />} 
       
       <Routes>
@@ -36,14 +36,14 @@ const AppContent = () => {
         <Route path="/coding" element={<CodingProfiles />} />
         <Route path="/contact" element={<Contact />} />
 
-        {/* Hidden Admin Route */}
+        
         <Route path="/admin" element={<MainForm/>} />
       </Routes>
     </>
   );
 };
 
-// 🌟 Main App ab bas Router ko wrap karega
+
 function App() {
   return (
     <Router>

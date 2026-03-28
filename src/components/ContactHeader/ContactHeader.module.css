@@ -1,7 +1,7 @@
-/* --- src/components/ContactHeader/ContactHeader.module.css --- */
+
 
 .sectionLabel {
-  color: var(--accent); /* Standard green color */
+  color: var(--accent); 
   font-family: "DM Mono", monospace;
   font-size: 11px;
   letter-spacing: 2.5px;
@@ -25,13 +25,13 @@
   font-size: clamp(32px, 4vw, 46px);
   font-weight: 300;
   line-height: 1.15;
-  color: var(--ink); /* Black text */
+  color: var(--ink); 
   margin-bottom: 24px;
 }
 
 .contactDesc {
   font-size: 16px;
-  color: var(--ink2); /* Gray text */
+  color: var(--ink2); 
   line-height: 1.8;
   margin-bottom: 36px;
 }

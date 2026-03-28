@@ -44,7 +44,7 @@
   gap: 20px;
 }
 
-/* 📱 Mobile Responsiveness */
+
 @media (max-width: 768px) {
   .codingSection {
     padding: 60px 5vw;

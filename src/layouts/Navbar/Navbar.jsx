@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom'; // 🌟 NavLink import kiya
+import { Link, NavLink } from 'react-router-dom'; 
 import styles from './Navbar.module.css';
 
 const Sun = ({ size = 16 }) => (
@@ -39,7 +39,7 @@ const Navbar = () => {
 
   const handleLinkClick = () => setIsMenuOpen(false);
 
-  // Ye ek helper function hai jo active state par class lagayega
+  
   const navLinkClass = ({ isActive }) => 
     isActive ? styles.activeLink : '';
 
@@ -52,12 +52,12 @@ const Navbar = () => {
 
   return (
     <nav className={styles['nav-container']}>
-      {/* Logo ke liye Link hi theek hai */}
+      
       <Link to="/" className={styles['nav-logo']} onClick={handleLinkClick}>Aditya<span>.</span></Link>
 
       <div className={styles['nav-right']}>
         <ul className={`${styles['nav-links']} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}>
-          {/* 🌟 'end' likhna zaroori hai Home ke liye, warna wo hamesha active rahega */}
+          
           <li><NavLink to="/" end className={navLinkClass} onClick={handleLinkClick}>Home</NavLink></li>
           <li><NavLink to="/about" className={navLinkClass} onClick={handleLinkClick}>About</NavLink></li>
           <li><NavLink to="/skills" className={navLinkClass} onClick={handleLinkClick}>Skills</NavLink></li>
@@ -65,7 +65,7 @@ const Navbar = () => {
           <li><NavLink to="/achievements" className={navLinkClass} onClick={handleLinkClick}>Achievements</NavLink></li>
           <li><NavLink to="/coding" className={navLinkClass} onClick={handleLinkClick}>Coding</NavLink></li>
           
-          {/* CTA button ko same rehne diya */}
+          
           <li><Link to="/contact" className={styles['nav-cta']} onClick={handleLinkClick}>Contact</Link></li>
         </ul>
 

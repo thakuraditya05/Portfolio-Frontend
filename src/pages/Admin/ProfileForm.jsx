@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useAuth } from '@clerk/clerk-react'; 
-import toast from 'react-hot-toast'; // 🌟 Toast Import
+import toast from 'react-hot-toast'; 
 import styles from './Admin.module.css';
 
 const ProfileForm = () => {
@@ -30,7 +30,7 @@ const ProfileForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const toastId = toast.loading('Saving Profile... ⏳'); // 🌟 Loading Toast
+    const toastId = toast.loading('Saving Profile... ⏳'); 
 
     try {
       const token = await getToken();
@@ -69,12 +69,12 @@ const ProfileForm = () => {
 
       const result = await response.json();
       if (result.success) {
-        toast.success('Profile Updated Successfully! ✅', { id: toastId }); // 🌟 Success Toast
+        toast.success('Profile Updated Successfully! ✅', { id: toastId }); 
       } else {
-        toast.error('Error: ' + result.message, { id: toastId }); // 🌟 Error Toast
+        toast.error('Error: ' + result.message, { id: toastId }); 
       }
     } catch (error) {
-      console.error("Profile API Error:", error); // F12 daba kar console check karne ke liye
+      console.error("Profile API Error:", error); 
       toast.error('Network Error! Backend server ON hai?', { id: toastId });
     } finally {
       setLoading(false);

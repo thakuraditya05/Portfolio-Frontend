@@ -11,31 +11,31 @@
   cursor: pointer;
 }
 
-/* Hover par card upar aayega */
+
 .codingCard:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 36px rgba(26, 25, 21, 0.09);
 }
 
-/* Dynamic Brand Border Colors on Hover */
+
 .hoverLeetcode:hover {
   border-color: #eab308;
-} /* Yellow */
+} 
 .hoverCodechef:hover {
   border-color: #10b981;
-} /* Green */
+} 
 .hoverCodeforces:hover {
   border-color: #4f46e5;
-} /* Indigo */
+} 
 .hoverGithub:hover {
   border-color: #52525b;
-} /* Gray */
+} 
 .hoverHackerrank:hover {
   border-color: #22c55e;
-} /* Light Green */
+} 
 .hoverGfg:hover {
   border-color: #16a34a;
-} /* Dark Green */
+} 
 
 .codingLogo {
   font-size: 32px;

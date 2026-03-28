@@ -7,7 +7,7 @@ import Footer from '../../layouts/Footer/Footer';
 
 
 import  { useContext } from 'react';
-import { PortfolioContext } from '../../../context/PortfolioContext.jsx'; // Path apne hisaab se adjust karein
+import { PortfolioContext } from '../../../context/PortfolioContext.jsx'; 
 
 
 const Contact = () => {

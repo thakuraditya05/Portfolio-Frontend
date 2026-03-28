@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom'; // 🌟 createPortal yahan se aayega
+import ReactDOM from 'react-dom'; 
 import styles from './CodingModal.module.css';
 
 const CodingModal = ({ profile, onClose }) => {
-  // Jab modal khule toh pichhe ki screen scroll na ho
+  
   useEffect(() => {
     if (profile) {
       document.body.style.overflow = 'hidden';
@@ -17,10 +17,10 @@ const CodingModal = ({ profile, onClose }) => {
 
   if (!profile) return null;
 
-  // 🌟 createPortal ka jadu: Ye modal ko normal DOM tree se bahar nikal kar <body> ke end me daal dega
+  
   return ReactDOM.createPortal(
     <div className={styles.modalOverlay} onClick={onClose}>
-      {/* e.stopPropagation() ensures ki modal ke andar click karne par wo band na ho */}
+      
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         
         <button className={styles.closeBtn} onClick={onClose}>
@@ -46,7 +46,7 @@ const CodingModal = ({ profile, onClose }) => {
           ))}
         </div>
 
-        {/* 🌟 Naya page safely kholne wala button */}
+        
         <a 
           href={profile.link} 
           target="_blank" 
@@ -58,7 +58,7 @@ const CodingModal = ({ profile, onClose }) => {
 
       </div>
     </div>,
-    document.body // 🌟 Modal ko seedha document.body me inject kar rahe hain
+    document.body 
   );
 };
 

@@ -2,29 +2,29 @@ import React from 'react';
 import styles from './HeroText.module.css';
 import { Link } from 'react-router-dom';
 
-// 🌟 Prop catch kiya
+
 const HeroText = ({ profile }) => {
-  // Name ko 2 hisso mein todna (e.g., "Thakur Aditya" aur "Singh Chauhan")
+  
   const fullName = profile?.name || "Aditya Singh";
   const nameParts = fullName.split(" ");
   const firstName = nameParts[0]; 
-  const lastName = nameParts.slice(1).join(" "); // Baaki ka bacha hua naam
+  const lastName = nameParts.slice(1).join(" "); 
 
   return (
     <div>
       <div className={`${styles['hero-tag']} fade-up`}>Available for work</div>
       
-      {/* 🌟 Dynamic Name */}
+      
       <h1 className={`${styles['hero-name']} fade-up delay-1`}>
         {firstName}<br/><em>{lastName}</em>
       </h1>
       
-      {/* 🌟 Dynamic Location */}
+      
       <p className={`${styles['hero-role']} fade-up delay-2`}>
         Full Stack Developer· {profile?.location?.city || "Bhopal"}, {profile?.location?.country || "India"}
       </p>
       
-      {/* 🌟 Dynamic Bio */}
+      
       <p className={`${styles['hero-desc']} fade-up delay-3`}>
         {profile?.bio || "I build clean, fast, and scalable web applications — from pixel-perfect UIs to robust backend systems."}
       </p>
@@ -32,7 +32,7 @@ const HeroText = ({ profile }) => {
       <div className={`${styles['hero-actions']} fade-up delay-4`}>
         <Link to="/projects" className={styles['btn-primary']}>View My Work </Link>
         <Link to="/contact"className={styles['btn-outline']}>Let's Talk </Link>
-        {/* <a href="/contact" >Let's Talk</a> */}
+        
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const AboutInfo = () => {
 
   const name = profile?.name || 'Aditya Singh';
   const locationParts = [profile?.location?.city, profile?.location?.country].filter(Boolean);
-  // const location = locationParts.length > 0 ? locationParts.join(', ') : 'NIT-Bhopal, Bhopal';
+  
   const location = 'NIT-Bhopal, Madhya Pradesh';
   const education = profile?.education?.degree ||  'Electronics and Communication Engineering';
   const Tech_Stack = 'MERN Stack, Data Science & ML';
@@ -16,7 +16,7 @@ const AboutInfo = () => {
   const Highlights = '500+ DSA Problems & Multiple Projects';
   const What_I_Do = 'Build scalable web apps & intelligent systems';
 
-// 2. Current Focus
+
   const buildDownloadUrl = (url) => {
     if (!url) return '';
     try {
@@ -89,7 +89,7 @@ const AboutInfo = () => {
       
       <div style={{ marginTop: '28px' }}>
         <a
-          href={hasResume ? resumeDownloadLink : '#'}
+          href={hasResume ? resumeDownloadLink : undefined}
           className={styles.btnPrimary}
           target={hasResume ? '_blank' : undefined}
           rel={hasResume ? 'noreferrer' : undefined}

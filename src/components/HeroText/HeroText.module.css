@@ -67,15 +67,15 @@
   display: inline-block;
 }
 
-/* Ye code dot (●) create karega hero tag ke aage */
+
 .hero-tag::before { 
   content: '●'; 
   font-size: 8px; 
-  /* 'pulse' naam ki animation ko call kar raha hai jo niche banayi hai */
+  
   animation: pulse 2s infinite; 
 }
 
-/* Ye code us dot ko blink (chamakne) ka effect dega */
+
 @keyframes pulse { 
   0%, 100% { opacity: 1; } 
   50% { opacity: 0.3; } 

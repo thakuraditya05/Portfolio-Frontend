@@ -6,7 +6,7 @@ import AboutInfo from '../../components/AboutInfo/AboutInfo.jsx'
 
 export default function About(){
     return (
-// mainStyles ko as is use karenge
+
     <section className={styles.aboutSection}>
       <div className={styles.container}>
         <div className={styles.aboutGrid}>

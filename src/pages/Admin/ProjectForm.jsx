@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '@clerk/clerk-react';
-import toast from 'react-hot-toast'; // 🌟 Toast Import
+import toast from 'react-hot-toast'; 
 import styles from './Admin.module.css';
 
 const ProjectForm = () => {
@@ -15,7 +15,7 @@ const ProjectForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const toastId = toast.loading('Uploading Image... ⏳'); // 🌟 Loading Toast
+    const toastId = toast.loading('Uploading Image... ⏳'); 
 
     try {
       const token = await getToken();
@@ -46,7 +46,7 @@ const ProjectForm = () => {
 
       const result = await response.json();
       if (result.success) {
-        toast.success('Project Successfully Added! 🚀', { id: toastId }); // 🌟 Success Toast
+        toast.success('Project Successfully Added! 🚀', { id: toastId }); 
         setFormData({ title: '', category: '', shortDesc: '', fullDesc: '', stack: '', liveLink: '', githubLink: '' });
         setImageFile(null);
       } else {
@@ -54,7 +54,7 @@ const ProjectForm = () => {
       }
     } catch (error) {
       console.error("Project API Error:", error);
-      toast.error('Failed to save. Is backend running?', { id: toastId }); // 🌟 Error Toast
+      toast.error('Failed to save. Is backend running?', { id: toastId }); 
     } finally {
       setLoading(false);
     }

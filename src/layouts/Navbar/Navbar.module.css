@@ -43,44 +43,44 @@
   font-weight: 400;
   letter-spacing: 0.3px;
   transition: all 0.3s ease;
-  position: relative; /* 🌟 FIX: Ye line zaroor add karein glowing dot ke liye */
+  position: relative; 
 }
 
 .nav-links a:hover {
   color: var(--accent);
 }
 
-/* 🌟 NAYA CODE: Active State & Light Effect 🌟 */
+
 .activeLink {
   color: var(--ink) !important; 
   font-weight: 500 !important;
 }
-/* Green Bar Indicator */
+
 .activeLink::after {
   content: '';
   position: absolute;
-  bottom: -6px; /* Text se thoda neeche */
+  bottom: -6px; 
   left: 0;
-  width: 100%; /* Text ki poori width lega */
-  height: 2px; /* Sleek and thin bar */
-  background: var(--accent); /* Aapka green accent color */
-  border-radius: 2px; /* Halke se rounded edges */
+  width: 100%; 
+  height: 2px; 
+  background: var(--accent); 
+  border-radius: 2px; 
   
-  /* Animation ko center se spread karne ke liye */
+  
   transform-origin: center;
   animation: expandBar 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 @keyframes expandBar {
   0% { 
-    transform: scaleX(0); /* Shuru mein width 0 hogi */
+    transform: scaleX(0); 
     opacity: 0; 
   }
   100% { 
-    transform: scaleX(1); /* Pura 100% open ho jayega */
+    transform: scaleX(1); 
     opacity: 1; 
   }
 }
-/* nav-actions */
+
 .nav-cta {
   background: var(--ink);
   color: var(--bg) !important;
@@ -93,7 +93,7 @@
   color: var(--bg) !important;
 }
 
-/* Right side group (links + toggle + hamburger) */
+
 .nav-right {
   display: flex;
   align-items: center;
@@ -146,7 +146,7 @@
   color: var(--accent);
 }
 
-/* --- Mobile Navbar --- */
+
 .hamburger {
   display: none;
   background: transparent;

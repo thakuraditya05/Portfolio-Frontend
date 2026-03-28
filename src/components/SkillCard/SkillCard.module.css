@@ -1,11 +1,11 @@
-/* --- SkillCard.module.css --- */
+
 
 .skillCat {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 28px;
-  /* transition mein border-color add kiya taaki color smoothly change ho */
+  
   transition: all 0.3s ease;
 }
 
@@ -14,27 +14,27 @@
   transform: translateY(-4px);
 }
 
-/* 🌟 Har Card ke liye alag Hover Border Colors */
+
 .hoverFe:hover {
   border-color: #f59e0b;
-} /* Orange for Frontend */
+} 
 .hoverBe:hover {
   border-color: #10b981;
-} /* Green for Backend */
+} 
 .hoverDb:hover {
   border-color: #3b82f6;
-} /* Blue for Database */
+} 
 .hoverTools:hover {
   border-color: #ef4444;
-} /* Red for Tools */
+} 
 .hoverCloud:hover {
   border-color: #0ea5e9;
-} /* Sky Blue for Cloud */
+} 
 .hoverSoft:hover {
   border-color: #8b5cf6;
-} /* Purple for Soft Skills */
+} 
 
-/* --- Niche ka Icon aur Tags wala CSS waisa hi rahega --- */
+
 .skillCatIcon {
   width: 42px;
   height: 42px;

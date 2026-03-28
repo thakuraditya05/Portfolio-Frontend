@@ -1,49 +1,49 @@
-﻿// import React, { useContext, useState } from 'react';
-// import styles from './CodingProfiles.module.css';
-// import CodingCard from '../../components/CodingCard/CodingCard';
-// import CodingModal from '../../components/CodingModal/CodingModal';
-// import { PortfolioContext } from '../../../context/PortfolioContext';
+﻿
 
-// const CodingProfiles = () => {
-//   const { portfolioData, loading } = useContext(PortfolioContext);
-//   const [selectedProfile, setSelectedProfile] = useState(null);
 
-//   if (loading) {
-//     return <div style={{ textAlign: 'center', padding: '100px 0' }}>Loading coding profiles... â³</div>;
-//   }
 
-//   const rawProfiles = portfolioData?.codingProfiles || portfolioData?.profile?.codingProfiles || [];
-//   const profilesData = rawProfiles.map((profile) => ({
-//     ...profile,
-//     stats: Array.isArray(profile?.stats) ? profile.stats : []
-//   }));
 
-//   return (
-//     <section className={`${styles.codingSection} fade-up`}>
-//       <div className={styles.container}>
-//         <div className={styles.sectionLabel}>Coding Profiles</div>
-//         <h2 className={styles.sectionTitle}>Where I compete & learn</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
-//         <div className={styles.codingGrid}>
-//           {profilesData.map((profile, index) => (
-//             <CodingCard 
-//               key={profile._id || profile.id || profile.platform || index}
-//               profile={profile} 
-//               onClick={(clickedProfile) => setSelectedProfile(clickedProfile)} 
-//             />
-//           ))}
-//         </div>
-//       </div>
 
-//       <CodingModal 
-//         profile={selectedProfile} 
-//         onClose={() => setSelectedProfile(null)} 
-//       />
-//     </section>
-//   );
-// };
 
-// export default CodingProfiles;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import React, { useState } from 'react';
 import styles from './CodingProfiles.module.css';
@@ -53,7 +53,7 @@ import CodingModal from '../../components/CodingModal/CodingModal';
 const CodingProfiles = () => {
   const [selectedProfile, setSelectedProfile] = useState(null);
 
-  // 🌟 Pura data hardcoded hai yahan
+  
   const profilesData = [
     {
       id: 1, platform: "LeetCode", logo: "🟨", handle: "@thakur-aditya05",
@@ -73,7 +73,7 @@ const CodingProfiles = () => {
       image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=800",
       link: "https://www.codechef.com/users/thakuraditya05"
     },
-    { // https://codeforces.com/profile/
+    { 
       id: 3, platform: "Codeforces", logo: "💻", handle: "@thakur.aditya05",
       hoverClass: "hoverCodeforces",
       badgeText: "newbie", badgeBg: "#E8EAF6", badgeColor: "#3730A3",
@@ -82,7 +82,7 @@ const CodingProfiles = () => {
       image: "https://images.unsplash.com/photo-1526379095098-d400fd0bfce8?auto=format&fit=crop&q=80&w=800",
       link: "https://codeforces.com/profile/thakur.aditya05"
     },
-    {  // https://github.com/thakuraditya05
+    {  
       id: 4, platform: "GitHub", logo: "🐙", handle: "@thakuraditya05",
       hoverClass: "hoverGithub",
       badgeText: "Open Source", badgeBg: "#F1F0EC", badgeColor: "#5A574F",
@@ -91,15 +91,15 @@ const CodingProfiles = () => {
       image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800",
       link: "https://github.com/thakuraditya05"
     },
-    // {
-    //   id: 5, platform: "HackerRank", logo: "💚", handle: "@aditya_s",
-    //   hoverClass: "hoverHackerrank",
-    //   badgeText: "5 Star", badgeBg: "#E8F5E9", badgeColor: "#276749",
-    //   stats: [ { value: "5★", label: "Problem Solving" } ],
-    //   fullDesc: "Achieved maximum stars in Problem Solving and SQL modules. Strong fundamentals in basic data structures.",
-    //   image: "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800",
-    //   link: "https://hackerrank.com"
-    // },
+    
+    
+    
+    
+    
+    
+    
+    
+    
     {
       id: 6, platform: "GeeksforGeeks", logo: "🟩", handle: "@thakuradityasiff6h",
       hoverClass: "hoverGfg",

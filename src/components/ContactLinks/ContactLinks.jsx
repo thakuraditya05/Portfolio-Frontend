@@ -3,9 +3,9 @@ import React from 'react';
 import styles from './ContactLinks.module.css';
 
 const ContactLinks = ({ profile }) => {
-  // Aapka naya primary email
+  
   const userEmail = profile?.email || "thakuradityasinghchauhan22@gmail.com";
-  // WhatsApp number (country code +91 lagana zaroori hai)
+  
   const whatsappNumber = "919569350311"; 
 
   const linksData = [

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'; // 🌟 1. useRef import kiya
+import React, { useEffect, useRef } from 'react'; 
 import styles from './Footer.module.css';
 import { SignedIn, SignedOut, SignInButton, useUser, useClerk } from '@clerk/clerk-react'; 
 import { Link, useNavigate } from 'react-router-dom';
@@ -9,28 +9,28 @@ export default function Footer() {
   const { signOut } = useClerk();
   const navigate = useNavigate(); 
   
-  // 🌟 2. Ek 'Lock' banaya taaki effect baar-baar na chale
+  
   const isLoggingOut = useRef(false); 
 
   const isAdmin = user?.primaryEmailAddress?.emailAddress === "thakuradityasinghchauhan22@gmail.com";
 
   useEffect(() => {
-    // Agar galat user hai AUR pehle se logout process shuru nahi hua hai
+    
     if (user && !isAdmin && !isLoggingOut.current) {
       
-      isLoggingOut.current = true; // 🌟 Lock laga diya (taaki 3 baar reload na ho)
+      isLoggingOut.current = true; 
 
-      // 1. Shanti se Toast dikhao
+      
       toast.error("Unauthorized Access! Aap Admin nahi hain.", {
         duration: 3000,
         position: 'bottom-center',
       }); 
       
-      // 2. 2 Second (2000ms) ka wait karo, uske baad signout karo
+      
       setTimeout(() => {
         signOut().then(() => {
-          navigate('/'); // Home par bhejo
-          isLoggingOut.current = false; // Lock wapas khol do
+          navigate('/'); 
+          isLoggingOut.current = false; 
         });
       }, 2000); 
 

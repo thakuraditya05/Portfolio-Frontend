@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: var(--glass-bg); /* Theme-aware glass effect */
+  background: var(--glass-bg); 
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
   padding: 0 5vw;
@@ -15,17 +15,17 @@
 }
 
 .hiddenDot {
-  display: inline-block; /* Transform animation ke liye ye zaroori hai */
+  display: inline-block; 
   margin-left: 8px;
-  color: var(--accent); /* Aapka Green Color */
+  color: var(--accent); 
   font-size: 14px;
   cursor: pointer;
   
-  /* Ye line animation ko loop mein chalayegi */
+  
   animation: floatGlow 2s ease-in-out infinite; 
 }
 
-/* 🌟 Keyframes for Up-Down & Glowing Effect */
+
 @keyframes floatGlow {
   0% {
     transform: translateY(0px);
@@ -33,13 +33,13 @@
     text-shadow: 0 0 4px var(--accent);
   }
   50% {
-    transform: translateY(-4px); /* Halka sa upar uthega */
-    opacity: 1; /* Pura bright ho jayega */
-    /* Deep Green Glow Effect */
+    transform: translateY(-4px); 
+    opacity: 1; 
+    
     text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); 
   }
   100% {
-    transform: translateY(0px); /* Wapas niche aayega */
+    transform: translateY(0px); 
     opacity: 0.4;
     text-shadow: 0 0 4px var(--accent);
   }
@@ -50,18 +50,18 @@
   font-family: 'Fraunces', serif;
   font-size: 16px;
   font-weight: 300;
-  color: var(--ink2); /* Dark gray text taaki white pe accha dikhe */
+  color: var(--ink2); 
   font-style: italic;
 }
 
 .footerCopy {
   font-size: 12px;
-  color: var(--ink3); /* Muted text for copyright */
+  color: var(--ink3); 
   font-family: 'DM Mono', monospace;
   letter-spacing: 0.5px;
 }
 
-/* Mobile responsive ke liye */
+
 @media (max-width: 480px) {
   .footer {
     flex-direction: column;

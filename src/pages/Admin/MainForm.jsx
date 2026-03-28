@@ -12,21 +12,21 @@ const MainForm = () => {
   const { user, isLoaded } = useUser();
   const [activeTab, setActiveTab] = useState('profile');
 
-  // 1. Loading State
+  
   if (!isLoaded) return <div style={{ textAlign: 'center', marginTop: '100px', fontSize: '18px' }}>Loading Admin Panel... â³</div>;
 
-  // 2. Security Check (Aapka naya Gmail)
+  
   const currentEmail = user?.primaryEmailAddress?.emailAddress;
   const isAdmin = currentEmail === "thakuradityasinghchauhan22@gmail.com";
 
   if (!isAdmin) {
-    return <Navigate to="/" />; // Agar koi aur ghusne ki koshish kare, toh Home par fek do
+    return <Navigate to="/" />; 
   }
 
   return (
     <div className={styles.adminContainer}>
       
-      {/* ðŸŒŸ SIDEBAR */}
+      
       <aside className={styles.sidebar}>
         <h2>Admin Panel</h2>
         <nav>
@@ -62,7 +62,7 @@ const MainForm = () => {
           </button>
         </nav>
 
-        {/* ðŸŒŸ BACK TO WEBSITE BUTTON */}
+        
         <div style={{ marginTop: 'auto', paddingTop: '40px' }}>
           <Link 
             to="/" 
@@ -78,10 +78,10 @@ const MainForm = () => {
         </div>
       </aside>
 
-      {/* ðŸŒŸ MAIN FORM AREA */}
+      
       <main className={styles.formContent}>
         
-        {/* Forms hamesha render honge, par CSS (display: none) se hide/show honge taaki data gayab na ho */}
+        
         <div style={{ display: activeTab === 'profile' ? 'block' : 'none' }}>
           <ProfileForm />
         </div>

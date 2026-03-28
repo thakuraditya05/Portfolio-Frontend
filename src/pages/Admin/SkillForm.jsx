@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '@clerk/clerk-react'; 
-import toast from 'react-hot-toast'; // 🌟 Toast Import
+import toast from 'react-hot-toast'; 
 import styles from './Admin.module.css';
 
 const SkillForm = () => {
@@ -14,7 +14,7 @@ const SkillForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const toastId = toast.loading('Saving Skill... ⏳'); // 🌟 Loading Toast
+    const toastId = toast.loading('Saving Skill... ⏳'); 
 
     try {
       const token = await getToken();
@@ -32,14 +32,14 @@ const SkillForm = () => {
 
       const result = await response.json();
       if (result.success) {
-        toast.success('Skill Category Added! ✅', { id: toastId }); // 🌟 Success Toast
+        toast.success('Skill Category Added! ✅', { id: toastId }); 
         setFormData({ category: '', technologies: '' }); 
       } else {
         toast.error('Error: ' + result.message, { id: toastId });
       }
     } catch (error) {
       console.error("Skill API Error:", error);
-      toast.error('Failed to save. Check your Node backend.', { id: toastId }); // 🌟 Error Toast
+      toast.error('Failed to save. Check your Node backend.', { id: toastId }); 
     } finally {
       setLoading(false);
     }

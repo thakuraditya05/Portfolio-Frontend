@@ -1,21 +1,21 @@
-/* --- src/pages/Projects/Projects.module.css --- */
+
 
 .projectsSection {
   background: var(--bg);
-  padding: 100px 0; /* 🌟 FIX: 5vw padding hata di taki header 100% le sake */
+  padding: 100px 0; 
 }
 
-/* 🌟 FIX: Content ko center rakhne ke liye */
+
 .container, .stickyInner {
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 5vw;
 }
 
-/* 🌟 Sticky Header Box (100% Width) */
+
 .stickyHeader {
   position: sticky;
-  top: 60px; /* Navbar ke theek niche */
+  top: 60px; 
   background: var(--bg);
   z-index: 10;
   padding-top: 40px;
@@ -24,7 +24,7 @@
   width: 100%;
 }
 
-/* 🌟 THE MAGIC: Smooth Hide (Defuse) Effect */
+
 .stickyHeader::after {
   content: '';
   position: absolute;
@@ -32,12 +32,12 @@
   left: 0;
   width: 100%;
   height: 60px; 
-  /* Gradient: White se shuru hoke transparent hoga */
+  
   background: linear-gradient(to bottom, var(--bg) 0%, rgba(0, 0, 0, 0) 100%);
-  pointer-events: none; /* Taki cards click ho sakein */
+  pointer-events: none; 
 }
 
-/* Label & Title flex container */
+
 .sectionHeaderTop {
   display: flex;
   justify-content: space-between;
@@ -74,10 +74,10 @@
   font-weight: 300; 
   line-height: 1.15; 
   color: var(--ink); 
-  margin-bottom: 32px; /* Bottom space thoda kam kiya */
+  margin-bottom: 32px; 
 }
 
-/* 🌟 CUSTOM DROPDOWN CSS */
+
 .dropdownContainer {
   position: relative; 
 }
@@ -119,7 +119,7 @@
   right: 0; 
   background: var(--bg2); 
   border: 1px solid var(--border);
-  border-radius: 8px; /* var(--radius-sm) ko standard px kiya */
+  border-radius: 8px; 
   width: 220px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
   backdrop-filter: blur(10px); 
@@ -163,12 +163,12 @@
   border: 1px solid var(--border);
 }
 
-/* 🌟 Grid Styles */
+
 .projectsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
-  margin-top: 20px; /* Thoda gap title ke niche */
+  margin-top: 20px; 
 }
 
 @media (max-width: 768px) {

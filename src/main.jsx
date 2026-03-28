@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 
 import { ClerkProvider } from '@clerk/clerk-react';
-import { PortfolioProvider } from '../context/PortfolioContext.jsx'; // 🌟 Import kiya
+import { PortfolioProvider } from '../context/PortfolioContext.jsx'; 
 
 const PUBLISHABLE_KEY=import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 

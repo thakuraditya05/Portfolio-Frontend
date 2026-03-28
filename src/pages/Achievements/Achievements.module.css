@@ -1,30 +1,30 @@
-/* --- src/pages/Achievements/Achievements.module.css --- */
+
 
 .achieveSection {
   min-height: 100vh;
-  padding: 100px 0; /* 🌟 FIX: Yahan se '5vw' hata diya taki header 100% width le sake */
+  padding: 100px 0; 
   background: var(--bg);
 }
 
-/* 🌟 FIX: Content ko center karne aur side me gap dene ke liye */
+
 .container, .stickyInner {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0 5vw; /* 5vw padding ab yahan shift kar di hai */
+  padding: 0 5vw; 
 }
 
-/* 🌟 Header ab poori screen ki width lega */
+
 .stickyHeader {
   position: sticky;
   top: 60px;
-  background: var(--bg); /* Black ki jagah var(--bg) use karein taki blend ho jaye */
+  background: var(--bg); 
   z-index: 10;
   padding-top: 40px;
   padding-bottom: 20px;
   width: 100%;
 }
 
-/* Defuse/Fade Effect */
+
 .stickyHeader::after {
   content: '';
   position: absolute;
@@ -36,7 +36,7 @@
   pointer-events: none; 
 }
 
-/* --- Baaki ka code waisa hi rahega --- */
+
 .sectionLabel {
   font-family: "DM Mono", monospace;
   font-size: 11px;

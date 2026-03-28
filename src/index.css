@@ -1,5 +1,5 @@
 
-/* src/index.css ke top par add karein */
+
 :root {
   --bg: #F7F6F2;
   --bg2: #EFEDE7;
@@ -63,23 +63,23 @@ body {
 
 
 
-/* for unScroallbe  */
-/* Works on Chrome, Edge, Safari */
+
+
 ::-webkit-scrollbar {
-  width: 5px;              /* thin vertical */
-  height: 5px;             /* thin horizontal */
+  width: 5px;              
+  height: 5px;             
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; /* no background */
+  background: transparent; 
 }
 
 ::-webkit-scrollbar-thumb {
-   background: rgba(0, 0, 0, 0.3);  /* light grey */
-  border-radius: 10px;             /* smooth rounded */
+   background: rgba(0, 0, 0, 0.3);  
+  border-radius: 10px;             
   transition: all 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.6);  /* darker on hover */
+  background: rgba(0, 0, 0, 0.6);  
 }
