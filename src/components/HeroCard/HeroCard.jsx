@@ -37,7 +37,7 @@ const HeroCard = ({ profile }) => {
         {/* 🌟 Dynamic Stats */}
         <div className={styles['hero-card-stats']}>
           <div className={styles.stat}>
-            <div className={styles['stat-num']}>{profile?.stats?.projectCount || "0+"}</div>
+            <div className={styles['stat-num']}>{profile?.stats?.projectCount || "0+"}+</div>
             <div className={styles['stat-lbl']}>Projects</div>
           </div>
           <div className={styles.stat}>
